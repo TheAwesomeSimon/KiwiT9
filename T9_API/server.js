@@ -18,6 +18,7 @@ expressApp.use(function (req, res, next) {
 
 const wordsMethods = require('./methods/words.js');
 const apiRoutes = require('./router/apiRoutes.js')(express.Router(), wordsMethods);
+wordsMethods.loadDictionary(); 
 
 // set the restrictedAreaRoutes
 expressApp.use('/', apiRoutes);
