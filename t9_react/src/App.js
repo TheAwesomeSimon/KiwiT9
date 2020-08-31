@@ -1,20 +1,16 @@
 import React from 'react';
-import TextField from '@material-ui/core/TextField';
+import Home from './Components/Home';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-function App() {
-  return (
-    <TextField
-          id="number"
-          label="Number"
-          type="number"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="filled"
-          size="medium"
-          color="secondary"
-        />
-  );
+export default class App extends React.Component {
+  render() {
+    return(
+      <Switch>
+          <Route exact path="/">
+            <Redirect to="/home" />
+          </Route>
+          <Route exact path="/home" component={Home} />
+        </Switch>
+    )
+  }
 }
-
-export default App;
