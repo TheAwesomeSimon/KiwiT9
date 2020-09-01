@@ -11,12 +11,11 @@ export default class ShowMore extends React.Component {
                 display: 'none',
             }
         };
-        this.handleClick = this.handleClick.bind(this);
     }
     componentDidMount() {
         const containerHeight = document.getElementById(`container${this.props.id}`).scrollHeight;
         const documentHeight = window.innerHeight;
-        const height = containerHeight / documentHeight * 100
+        const height = containerHeight / documentHeight * 100;
         if (height > 55) {
             this.setState({
                 expand: false,
@@ -28,7 +27,7 @@ export default class ShowMore extends React.Component {
                     display: 'none',
                 },
                 height: height
-            })
+            });
         }
     }
     componentDidUpdate(prevProps, prevState) {
@@ -36,11 +35,11 @@ export default class ShowMore extends React.Component {
             this.setState({
                 expand: true,
             });
-        } 
+        }
         const containerHeight = document.getElementById(`container${this.props.id}`).scrollHeight;
         const documentHeight = window.innerHeight;
         const height = containerHeight / documentHeight * 100;
-        if ((prevState.height !== height )) {
+        if ((prevState.height !== height)) {
             if (height > 55) {
                 this.setState({
                     expand: true,
@@ -56,9 +55,9 @@ export default class ShowMore extends React.Component {
                     },
                     height: height,
                     expand: true
-                })
+                });
             }
-        } 
+        }
     }
     handleClick() {
         this.setState({
@@ -68,7 +67,7 @@ export default class ShowMore extends React.Component {
     render() {
         return <Wrapper>
             {this.state.expand ? <div>
-                <h6 style={this.state.display} className='smallLink' onClick={this.handleClick}>Show Less</h6>
+                <h6 style={this.state.display} className='smallLink' onClick={this.handleClick.bind(this)}>Show Less</h6>
                 <BigDiv id={`container${this.props.id}`}>
                     {this.props.rendertarget}
                 </BigDiv>

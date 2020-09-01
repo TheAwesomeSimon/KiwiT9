@@ -11,4 +11,7 @@ describe('Test', () => {
     it('load dictionary', () => {
         assert.equal(words.loadDictionary().length > 0, true);
     });
+    it('validate word', () => {
+        assert.equal(words.validateWord('ahoy'), true);
+    });
 });

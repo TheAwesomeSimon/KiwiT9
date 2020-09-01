@@ -11,6 +11,7 @@ module.exports = {
     getWords: getWords,
     loadDictionary: loadDictionary,
     translateT9: translateT9,
+    validateWord: validateWord
 };
 
 var dictionary = [];
@@ -106,9 +107,8 @@ function checkForDups(word) {
 }
 
 function addNewWord(req, res) {
-    console.log('here');
     const word = req.params.word.toLowerCase();
-    if (/^[a-z]+$/i.test(word)) {
+    if (validateWord(word)) {
         if (!checkForDups(word)) {
             newWords.push(word);
             newWords.sort();
@@ -123,7 +123,7 @@ function addNewWord(req, res) {
 
 function encode (req, res) {
     const word = req.params.word.toLowerCase();
-    if (/^[a-z]+$/i.test(word)) {
+    if (validateWord(word)) {
         let wordArr = word.split('');
         let result = '';
         wordArr.forEach(letter => {
@@ -139,4 +139,8 @@ function encode (req, res) {
     } else {
         res.status(500).send(`${word} is not a valid input`);
     }
+}
+
+function validateWord(word) {
+    return /^[a-z]+$/i.test(word);
 }

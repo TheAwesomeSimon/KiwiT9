@@ -1,7 +1,7 @@
 import React from 'react';
 import ShowMore from './ShowMore';
 import TextField from '@material-ui/core/TextField';
-import { getWords, getValidWords } from './../Utils/API';
+import { getValidWords, getWords } from './../Utils/API';
 import { CenterDiv, InlineDiv, TextFieldWrapper } from './Styled';
 
 
@@ -20,14 +20,14 @@ export default class Decode extends React.Component {
     handleTextField(e) {
         this.setState({
             number: e.target.value
-        })
+        });
     }
     handleKeyPress(e) {
         if (e.key === 'Enter') {
             const number = this.state.number;
             if (number.length !== 0) {
                 if (number.length > 10) {
-                    alert('You have chosen a long number, the back-end will take a while... hang on')
+                    alert('You have chosen a long number, the back-end will take a while... hang on');
                 }
                 getWords(number).then(data => {
                     if (data) {

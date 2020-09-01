@@ -25,4 +25,4 @@ expressApp.use('/', apiRoutes);
 // initialize the server
 expressApp.listen(port, () => {
     console.log(`Running on port ${port}`);
-})
+});

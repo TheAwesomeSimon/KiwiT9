@@ -1,10 +1,10 @@
-import React from 'react';
-import Home from './Components/Home';
 import Decode from './Components/Decode';
 import Encode from './Components/Encode';
+import Home from './Components/Home';
 import NewWord from './Components/NewWord';
+import React from 'react';
 import { AppDiv, Svg } from './Components/Styled'
-import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
+import { Redirect, Route, Switch, withRouter } from 'react-router-dom';
 
 class App extends React.Component {
   getPath() {

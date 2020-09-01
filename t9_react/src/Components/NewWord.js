@@ -1,7 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import { CenterDiv } from './Styled';
 import { addNewWord } from './../Utils/API';
+import { CenterDiv } from './Styled';
 import { validateWord } from './../Utils';
 
 export default class NewWord extends React.Component {
@@ -27,7 +27,7 @@ export default class NewWord extends React.Component {
                     if (data) {
                         alert(data);
                     }
-                })
+                });
             }
         }
     }
