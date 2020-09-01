@@ -35,3 +35,19 @@ export const Wrapper = styled.div`
     height: 63vh;
     overflow: scroll;
 `;
+
+export const Svg = styled.svg`
+    position: static;
+    margin-top: 0.5%;
+    margin-right: 20px;
+    fill: grey;
+    min-height:30px;
+    min-width:30px;
+    width: 2%;
+    height: 2%;
+    float: right;
+    &:hover {
+        fill: black;
+        cursor: pointer;
+    }
+`;
