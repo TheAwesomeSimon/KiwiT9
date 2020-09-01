@@ -5,7 +5,7 @@ export const AppDiv = styled.div`
     text-align: center;
 `;
 
-export const HomeDiv = styled.div`
+export const CenterDiv = styled.div`
     align-content: center;
 `;
 
@@ -13,7 +13,7 @@ export const InlineDiv = styled.div`
     display: inline-flex;
 `;
 
-export const Test = styled.div`
+export const TextFieldWrapper = styled.div`
     position: relative;
 `;
 
@@ -31,6 +31,7 @@ export const SmallDiv = styled.div`
 export const Wrapper = styled.div`
     margin: 3px;
     border: 2px solid grey;
+    width: 40vw;
     border-radius: 10px;
     height: 63vh;
     overflow: scroll;
@@ -38,16 +39,16 @@ export const Wrapper = styled.div`
 
 export const Svg = styled.svg`
     position: static;
-    margin-top: 0.5%;
+    margin-top: 0.2vh;
     margin-right: 20px;
-    fill: grey;
+    fill: black;
     min-height:30px;
     min-width:30px;
     width: 2%;
     height: 2%;
     float: right;
     &:hover {
-        fill: black;
+        fill: grey;
         cursor: pointer;
     }
 `;

@@ -104,9 +104,10 @@ function addNewWord(req, res) {
         if (!checkForDups(word)) {
             newWords.push(word);
             newWords.sort();
-            res.status(200).send('Done');
+            res.json('Added');
+        } else {
+            res.json('Already added');
         }
-        res.status(200).send('Already added');
     } else {
         res.status(500).send(`${word} is not a valid input`);
     }

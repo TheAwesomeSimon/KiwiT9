@@ -2,7 +2,7 @@ import React from 'react';
 import ShowMore from './ShowMore';
 import TextField from '@material-ui/core/TextField';
 import { getWords, getValidWords } from './../Utils/API';
-import { HomeDiv, InlineDiv, Test } from './Styled';
+import { CenterDiv, InlineDiv, TextFieldWrapper } from './Styled';
 
 
 export default class Decode extends React.Component {
@@ -47,9 +47,9 @@ export default class Decode extends React.Component {
     }
     render() {
         return (
-            <HomeDiv onKeyPress={this.handleKeyPress.bind(this)}>
+            <CenterDiv>
                 <h2>Enter a number to be translated</h2>
-                <Test>
+                <TextFieldWrapper onKeyPress={this.handleKeyPress.bind(this)}>
                     <TextField
                         id='numberTextField'
                         label='Number'
@@ -58,7 +58,7 @@ export default class Decode extends React.Component {
                         value={this.state.number}
                         onChange={this.handleTextField.bind(this)}
                     />
-                </Test>
+                </TextFieldWrapper>
                 <InlineDiv>
                     <div>
                         {this.state.words.length ? <div id='1'><h2>These are the possible combinations:</h2><ShowMore id='1' rendertarget={<div>{this.state.words.map((word, index) => {
@@ -71,7 +71,7 @@ export default class Decode extends React.Component {
                         })}</div>} /></div> : ''}
                     </div>
                 </InlineDiv>
-            </HomeDiv>
+            </CenterDiv>
         )
     }
 }

@@ -66,7 +66,6 @@ export default class ShowMore extends React.Component {
         });
     }
     render() {
-        console.log(this.props.id, this.state.display);
         return <Wrapper>
             {this.state.expand ? <div>
                 <h6 style={this.state.display} className='smallLink' onClick={this.handleClick}>Show Less</h6>
