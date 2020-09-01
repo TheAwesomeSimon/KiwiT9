@@ -12,6 +12,9 @@ class Encode extends React.Component {
             word: ''
         };
     }
+    componentDidMount() {
+        document.title = 'Encode';
+    }
     handleTextField(e) {
         this.setState({
             word: e.target.value

@@ -11,6 +11,9 @@ export default class NewWord extends React.Component {
             word: ''
         }
     }
+    componentDidMount() {
+        document.title = 'Add new word';
+    }
     handleTextField(e) {
         this.setState({
             word: e.target.value

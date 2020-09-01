@@ -4,11 +4,13 @@ const fs = require('fs');
 
 module.exports = {
     addNewWord: addNewWord,
+    checkValidity: checkValidity,
+    checkForDups: checkForDups,
     encode: encode,
-    getWords: getWords,
     getValidWords: getValidWords,
+    getWords: getWords,
     loadDictionary: loadDictionary,
-    
+    translateT9: translateT9,
 };
 
 var dictionary = [];
@@ -94,6 +96,12 @@ function checkForDups(word) {
             dup = true;
         }
     });
+    let dic = loadDictionary();
+    dic.forEach(item => {
+        if (item === word) {
+            dup = true;
+        }
+    });
     return dup;
 }
 
@@ -106,7 +114,7 @@ function addNewWord(req, res) {
             newWords.sort();
             res.json('Added');
         } else {
-            res.json('Already added');
+            res.json('Already existing');
         }
     } else {
         res.status(500).send(`${word} is not a valid input`);

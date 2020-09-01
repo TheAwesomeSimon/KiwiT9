@@ -6,7 +6,7 @@ export const AppDiv = styled.div`
 `;
 
 export const CenterDiv = styled.div`
-    align-content: center;
+    
 `;
 
 export const InlineDiv = styled.div`

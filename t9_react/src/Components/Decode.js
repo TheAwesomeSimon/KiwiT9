@@ -14,6 +14,9 @@ export default class Decode extends React.Component {
             validWords: []
         }
     }
+    componentDidMount() {
+        document.title = 'Decode';
+    }
     handleTextField(e) {
         this.setState({
             number: e.target.value
