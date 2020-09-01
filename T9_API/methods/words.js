@@ -40,15 +40,15 @@ function loadDictionary() {
 
 function translateT9(number, ret = []) {
     if (!number.length) {
-        return ret.sort()
+        return ret.sort();
     }
     if (!ret.length) {
-        return translateT9(number.slice(1), t9[number[0]])
+        return translateT9(number.slice(1), t9[number[0]]);
     }
     const nextRet = t9[number[0]].reduce((m, x) =>
         m.concat(ret.map(word => word.concat(x)))
         , []);
-    return translateT9(number.slice(1), nextRet)
+    return translateT9(number.slice(1), nextRet);
 }
 
 function checkValidity(combinations) {
@@ -56,6 +56,11 @@ function checkValidity(combinations) {
     let results = [];
     combinations.forEach(element => {
         dic.find(found => {
+            if (found === element) {
+                results.push(found);
+            }
+        });
+        newWords.find(found => {
             if (found === element) {
                 results.push(found);
             }
@@ -107,6 +112,22 @@ function addNewWord(req, res) {
     }
 }
 
-function encode (word) {
-
+function encode (req, res) {
+    const word = req.params.word.toLowerCase();
+    if (/^[a-z]+$/i.test(word)) {
+        let wordArr = word.split('');
+        let result = '';
+        wordArr.forEach(letter => {
+            t9.forEach((key, t9index) => {
+                key.forEach(element => {
+                    if (element === letter) {
+                        result = result + t9index.toString();
+                    }
+                });
+            });
+        });
+        res.json(parseInt(result));
+    } else {
+        res.status(500).send(`${word} is not a valid input`);
+    }
 }
