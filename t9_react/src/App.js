@@ -1,19 +1,20 @@
 import React from 'react';
 import Home from './Components/Home';
+import { AppDiv } from './Components/Styled'
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 export default class App extends React.Component {
   render() {
     return (
-      <div>
+      <AppDiv>
         <h1>T9 translator</h1>
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/home" />
+          <Route exact path='/'>
+            <Redirect to='/home' />
           </Route>
-          <Route exact path="/home" component={Home} />
+          <Route exact path='/home' component={Home} />
         </Switch>
-      </div>
+      </AppDiv>
     )
   }
 }
